@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My Feed</title>
+
+<style>
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",sans-serif;
+}
+
+/* BACKGROUND */
+body{
+  margin:0;
+  padding:40px;
+  min-height:100vh;   /* 🔥 important */
+  
+  background: url("https://images.unsplash.com/photo-1519389950473-47ba0277781c") no-repeat center center/cover;
+  position:relative;
+  color:white;
+  overflow-x:hidden;  /* 🔥 side glitch fix */
+}
+
+/* 🔥 DARK OVERLAY (IMPORTANT FOR READABILITY) */
+body::before{
+  content:"";
+  position:fixed;   /* 🔥 change from absolute → fixed */
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;     /* 🔥 full screen fix */
+
+  background:rgba(0,0,0,0.75);
+  backdrop-filter:blur(12px);
+
+  z-index:0;
+}
+.header, .feed-container{
+  position:relative;
+  z-index:1;
+}
+
+/* CONTENT UPPAR DIKHE */
+.header, .feed-container{
+  position:relative;
+  z-index:1;
+}
+
+/* HEADER */
+.header{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.header h1{
+  font-size:42px;
+  font-weight:700;
+}
+
+.tabs{
+  margin-top:15px;
+  display:inline-block;
+  background:rgba(255,255,255,0.08);
+  padding:10px 25px;
+  border-radius:25px;
+  backdrop-filter:blur(12px);
+}
+
+/* GRID */
+.feed-container{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap:25px;
+}
+
+/* CARD */
+.card{
+  background:rgba(255,255,255,0.06);
+  border-radius:20px;
+  overflow:hidden;
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.08);
+  transition:0.3s;
+  cursor:pointer;
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* IMAGE */
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+/* CONTENT */
+.card-content{
+  padding:15px;
+}
+
+.card-title{
+  font-size:18px;
+  font-weight:600;
+}
+
+.card-sub{
+  font-size:13px;
+  color:#cbd5f5;
+  margin-top:6px;
+}
+
+/* BADGE */
+.badge{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:#2563eb;
+  padding:5px 12px;
+  font-size:12px;
+  border-radius:10px;
+}
+
+/* WRAPPER */
+.card-wrapper{
+  position:relative;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h1>My Feed</h1>
+  <div class="tabs">✨ Tailored For You</div>
+</div>
+
+<div class="feed-container">
+
+  <!-- CARD 1 -->
+  <div class="card">
+    <div class="card-wrapper">
+      <span class="badge">Startup</span>
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab">
+    </div>
+    <div class="card-content">
+      <div class="card-title">Tech Startups Raise $50M in New Funding</div>
+      <div class="card-sub">Source: ET Finance</div>
+    </div>
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="card">
+    <div class="card-wrapper">
+      <span class="badge">Market</span>
+      <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231">
+    </div>
+    <div class="card-content">
+      <div class="card-title">Market Update: Sensex Surges 300 Points</div>
+      <div class="card-sub">Source: ET Markets</div>
+    </div>
+  </div>
+
+  <!-- CARD 3 -->
+  <div class="card">
+    <div class="card-wrapper">
+      <span class="badge">Energy</span>
+      <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231">
+    </div>
+    <div class="card-content">
+      <div class="card-title">Renewable Energy Solar Growth Trends</div>
+      <div class="card-sub">Source: ET Energy</div>
+    </div>
+  </div>
+
+  <!-- CARD 4 -->
+  <div class="card">
+    <div class="card-wrapper">
+      <span class="badge">AI</span>
+      <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995">
+    </div>
+    <div class="card-content">
+      <div class="card-title">AI Revolution in 2026: What to Expect</div>
+      <div class="card-sub">Source: Tech AI</div>
+    </div>
+  </div>
+
+  <!-- CARD 5 -->
+  <div class="card">
+    <div class="card-wrapper">
+      <span class="badge">Crypto</span>
+      <img src="https://images.unsplash.com/photo-1621761191319-c6fb62004040">
+    </div>
+    <div class="card-content">
+      <div class="card-title">Bitcoin Hits New All-Time High</div>
+      <div class="card-sub">Source: Crypto News</div>
+    </div>
+  </div>
+
+  <!-- CARD 6 -->
+  <div class="card">
+    <div class="card-wrapper">
+      <span class="badge">Business</span>
+      <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44">
+    </div>
+    <div class="card-content">
+      <div class="card-title">Global Markets Show Strong Recovery</div>
+      <div class="card-sub">Source: Global Finance</div>
+    </div>
+  </div>
+
+  <!-- CARD 7 -->
+  <div class="card">
+    <div class="card-wrapper">
+      <span class="badge">Tech</span>
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+    </div>
+    <div class="card-content">
+      <div class="card-title">Future of Technology in Next Decade</div>
+      <div class="card-sub">Source: Tech World</div>
+    </div>
+  </div>
+
+  <!-- CARD 8 -->
+  <div class="card">
+    <div class="card-wrapper">
+      <span class="badge">Finance</span>
+      <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a">
+    </div>
+    <div class="card-content">
+      <div class="card-title">Stock Market Trends Investors Must Know</div>
+      <div class="card-sub">Source: Market Watch</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

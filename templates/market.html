@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Markets</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",sans-serif;
+}
+
+/* BACKGROUND IMAGE */
+body{
+  background: url("https://images.unsplash.com/photo-1520607162513-77705c0f0d4a") no-repeat center/cover;
+  position:relative;
+  color:white;
+  padding:30px;
+}
+
+/* DARK OVERLAY */
+body::before{
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.8);
+  z-index:0;
+}
+
+/* MAIN */
+.container{
+  position:relative;
+  z-index:1;
+  max-width:1300px;
+  margin:auto;
+}
+
+/* HEADER */
+.header{
+  font-size:36px;
+  text-align:center;
+  margin-bottom:30px;
+}
+
+/* CARD */
+.card{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(20px);
+  border-radius:20px;
+  padding:25px;
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+/* TABS */
+.tabs{
+  display:flex;
+  gap:20px;
+  margin-bottom:20px;
+}
+
+.tab{
+  padding:10px 20px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.active{
+  background:#2563eb;
+}
+
+/* MARKET BOX */
+.market-box{
+  display:flex;
+  gap:20px;
+  margin-bottom:20px;
+}
+
+.box{
+  flex:1;
+  padding:15px;
+  border-radius:15px;
+  background:rgba(255,255,255,0.1);
+}
+
+.green{ color:#22c55e; }
+
+/* GRAPH (SMALL FIXED HEIGHT) */
+.graph{
+  height:200px;
+  margin-bottom:20px;
+}
+
+/* NEWS */
+.news{
+  padding:15px;
+  background:#020617;
+  border-radius:12px;
+  margin-bottom:20px;
+}
+
+/* STOCK LIST */
+.list{
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap:10px;
+}
+
+.item{
+  display:flex;
+  justify-content:space-between;
+  padding:12px;
+  background:rgba(255,255,255,0.05);
+  border-radius:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="header">📊 Markets Dashboard</div>
+
+  <div class="card">
+
+    <!-- TABS -->
+    <div class="tabs">
+      <div class="tab active">Stocks</div>
+      <div class="tab">Crypto</div>
+      <div class="tab">Commodities</div>
+    </div>
+
+    <!-- MARKET -->
+    <div class="market-box">
+      <div class="box">
+        <b>SENSEX</b><br>
+        ₹73,150<br>
+        <span class="green">+1.10%</span>
+      </div>
+
+      <div class="box">
+        <b>NIFTY 50</b><br>
+        ₹63,400<br>
+        <span class="green">+4.52%</span>
+      </div>
+    </div>
+
+    <!-- GRAPH -->
+    <div class="graph">
+      <canvas id="chart"></canvas>
+    </div>
+
+    <!-- NEWS -->
+    <div class="news">
+      📈 INDEX AT NEW RECORD<br>
+      Sensex & Nifty hit record highs with strong investor confidence.
+    </div>
+
+    <!-- STOCKS -->
+    <h3>Top Gainers</h3>
+
+    <div class="list">
+      <div class="item">Tata Motors <span class="green">+₹91</span></div>
+      <div class="item">Infosys <span class="green">+₹1550</span></div>
+      <div class="item">HDFC Bank <span class="green">+₹220</span></div>
+      <div class="item">Reliance <span class="green">+₹180</span></div>
+      <div class="item">ICICI Bank <span class="green">+₹95</span></div>
+      <div class="item">Wipro <span class="green">+₹70</span></div>
+      <div class="item">TCS <span class="green">+₹210</span></div>
+      <div class="item">Adani Ports <span class="green">+₹130</span></div>
+      <div class="item">Axis Bank <span class="green">+₹88</span></div>
+      <div class="item">Maruti <span class="green">+₹300</span></div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+const ctx = document.getElementById('chart');
+
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['9','10','11','12','1','2','3','4','5','6'],
+    datasets: [{
+      data: [72000,72500,73000,72800,73500,74000,74200,73900,73800,73150],
+      borderColor: '#22c55e',
+      tension:0.4,
+      fill:true
+    }]
+  },
+  options: {
+    responsive:true,
+    maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{display:false},
+      y:{display:false}
+    }
+  }
+});
+
+</script>
+
+</body>
+</html>

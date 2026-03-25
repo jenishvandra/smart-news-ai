@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Startups</title>
+
+<style>
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",sans-serif;
+}
+
+/* BACKGROUND */
+body{
+  background: url("https://images.unsplash.com/photo-1519389950473-47ba0277781c") no-repeat center/cover;
+  position:relative;
+  padding:30px;
+  color:white;
+}
+
+/* OVERLAY */
+body::before{
+  content:"";
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.85);
+  top:0;
+  left:0;
+  z-index:0;
+}
+
+/* MAIN */
+.container{
+  position:relative;
+  z-index:1;
+  max-width:1300px;
+  margin:auto;
+}
+
+/* HEADER */
+.header{
+  font-size:36px;
+  margin-bottom:20px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:25px;
+}
+
+/* CARD */
+.card{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(20px);
+  border-radius:20px;
+  padding:20px;
+}
+
+/* FEATURED GRID */
+.featured{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+
+/* STARTUP CARD */
+.startup-card{
+  background:rgba(255,255,255,0.1);
+  border-radius:15px;
+  overflow:hidden;
+  transition:0.3s;
+}
+
+.startup-card:hover{
+  transform:scale(1.04);
+}
+
+.startup-card img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+}
+
+.startup-content{
+  padding:10px;
+}
+
+/* NEWS */
+.news-item{
+  display:flex;
+  gap:10px;
+  margin-bottom:15px;
+  background:rgba(255,255,255,0.1);
+  padding:10px;
+  border-radius:10px;
+}
+
+.news-item img{
+  width:80px;
+  height:80px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.small{
+  font-size:12px;
+  color:#cbd5f5;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="header">🚀 Startups Dashboard</div>
+
+  <div class="grid">
+
+    <!-- LEFT -->
+    <div class="card">
+
+      <h3>Featured Startups</h3>
+
+      <div class="featured">
+
+        <!-- MANY CARDS -->
+        <div class="startup-card">
+          <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995">
+          <div class="startup-content">
+            <b>InnovateTech</b><br>₹25 Cr AI expansion
+          </div>
+        </div>
+
+        <div class="startup-card">
+          <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231">
+          <div class="startup-content">
+            <b>GreenEnergy</b><br>₹31M renewable funding
+          </div>
+        </div>
+
+        <div class="startup-card">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+          <div class="startup-content">
+            <b>AI Labs</b><br>Next-gen robotics
+          </div>
+        </div>
+
+        <div class="startup-card">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d">
+          <div class="startup-content">
+            <b>CloudX</b><br>Cloud computing future
+          </div>
+        </div>
+
+        <div class="startup-card">
+          <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44">
+          <div class="startup-content">
+            <b>FinEdge</b><br>Fintech innovation
+          </div>
+        </div>
+
+        <div class="startup-card">
+          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a">
+          <div class="startup-content">
+            <b>CryptoWave</b><br>Blockchain revolution
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="card">
+
+      <h3>Latest Startup News</h3>
+
+      <div class="news-item">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab">
+        <div>
+          <b>FinTech Zephyr</b><br>
+          Raises ₹30 Cr Series B<br>
+          <span class="small">1 hr ago</span>
+        </div>
+      </div>
+
+      <div class="news-item">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+        <div>
+          <b>EduVerse</b><br>
+          Partners with university<br>
+          <span class="small">3 hrs ago</span>
+        </div>
+      </div>
+
+      <div class="news-item">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d">
+        <div>
+          <b>HealthAI</b><br>
+          AI healthcare revolution<br>
+          <span class="small">5 hrs ago</span>
+        </div>
+      </div>
+
+      <div class="news-item">
+        <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a">
+        <div>
+          <b>CryptoWave</b><br>
+          Blockchain scaling<br>
+          <span class="small">6 hrs ago</span>
+        </div>
+      </div>
+
+      <div class="news-item">
+        <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44">
+        <div>
+          <b>FinEdge</b><br>
+          Fintech disruption<br>
+          <span class="small">8 hrs ago</span>
+        </div>
+      </div>
+
+      <div class="news-item">
+        <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231">
+        <div>
+          <b>GreenTech</b><br>
+          Clean energy rise<br>
+          <span class="small">10 hrs ago</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

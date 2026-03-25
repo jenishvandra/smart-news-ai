@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Profile</title>
+
+<style>
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",sans-serif;
+}
+
+/* BODY */
+body{
+  background:linear-gradient(135deg,#0f172a,#1e3a8a);
+  display:flex;
+  justify-content:center;
+  padding:30px;
+}
+
+/* CONTAINER */
+.profile-container{
+  width:1100px;
+  background:white;
+  border-radius:15px;
+  padding:25px;
+  display:flex;
+  gap:30px;
+}
+
+/* LEFT */
+.left{
+  width:300px;
+}
+
+.profile-img{
+  width:100%;
+  border-radius:12px;
+}
+
+/* SECTION */
+.section{
+  margin-top:20px;
+}
+
+.section h4{
+  margin-bottom:10px;
+}
+
+.badge{
+  background:#e5e7eb;
+  padding:4px 8px;
+  border-radius:6px;
+  font-size:12px;
+}
+
+/* RIGHT */
+.right{
+  flex:1;
+}
+
+/* HEADER */
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.name{
+  font-size:26px;
+  font-weight:600;
+}
+
+.sub{
+  color:#6b7280;
+}
+
+/* BUTTONS */
+.actions{
+  margin-top:10px;
+  display:flex;
+  gap:10px;
+}
+
+.btn{
+  padding:8px 15px;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
+}
+
+.primary{
+  background:#2563eb;
+  color:white;
+}
+
+.secondary{
+  background:#e5e7eb;
+}
+
+/* TABS */
+.tabs{
+  margin-top:20px;
+  border-bottom:1px solid #ddd;
+  display:flex;
+  gap:20px;
+}
+
+.active{
+  border-bottom:2px solid #2563eb;
+  color:#2563eb;
+}
+
+/* INFO */
+.info{
+  margin-top:20px;
+  line-height:1.8;
+}
+
+.info span{
+  font-weight:600;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="profile-container">
+
+  <!-- LEFT -->
+  <div class="left">
+
+    <!-- PROFILE IMAGE -->
+    <img src="https://api.dicebear.com/7.x/initials/svg?seed={{ user.username }}" class="profile-img">
+
+    <!-- WORK -->
+    <div class="section">
+      <h4>WORK</h4>
+
+      {% if user.work and user.work|length > 0 %}
+        {% for w in user.work %}
+          <p>{{ w }} <span class="badge">Primary</span></p>
+        {% endfor %}
+      {% else %}
+        <p style="color:gray;">No work added</p>
+      {% endif %}
+
+    </div>
+
+    <!-- SKILLS -->
+    <div class="section">
+      <h4>SKILLS</h4>
+
+      {% if user.skills and user.skills|length > 0 %}
+        {% for skill in user.skills %}
+          <p>{{ skill }}</p>
+        {% endfor %}
+      {% else %}
+        <p style="color:gray;">No skills added yet</p>
+      {% endif %}
+
+    </div>
+
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+
+    <div class="top">
+      <div>
+        <div class="name">{{ user.username }}</div>
+        <div class="sub">User • {{ user.city }}</div>
+      </div>
+      <div>🔖 Bookmark</div>
+    </div>
+
+    <div class="actions">
+      <button class="btn secondary">Message</button>
+      <button class="btn primary">Contacts</button>
+      <button class="btn secondary">Report</button>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <div>Timeline</div>
+      <div class="active">About</div>
+    </div>
+
+    <!-- INFO -->
+    <div class="info">
+      <p><span>Phone:</span> {{ user.phone }}</p>
+      <p><span>Email:</span> {{ user_email }}</p>
+      <p><span>Address:</span> {{ user.city }}</p>
+
+      <br>
+
+      <p><span>Status:</span> Active User</p>
+      <p><span>Account Type:</span> Standard</p>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

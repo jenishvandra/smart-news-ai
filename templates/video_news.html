@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Video News</title>
+
+<style>
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",sans-serif;
+}
+
+/* BACKGROUND */
+body{
+  background: url("https://images.unsplash.com/photo-1495020689067-958852a7765e") no-repeat center/cover;
+  position:relative;
+  padding:30px;
+  color:white;
+}
+
+/* OVERLAY */
+body::before{
+  content:"";
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.8);
+  top:0;
+  left:0;
+  z-index:0;
+}
+
+/* MAIN */
+.container{
+  position:relative;
+  z-index:1;
+  max-width:1300px;
+  margin:auto;
+}
+
+/* HEADER */
+.header{
+  font-size:32px;
+  margin-bottom:25px;
+}
+
+/* GRID LAYOUT */
+.video-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap:20px;
+}
+
+/* VIDEO CARD */
+.video{
+  cursor:pointer;
+}
+
+/* IMAGE */
+.video-box{
+  position:relative;
+}
+
+.video-box img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius:12px;
+}
+
+/* PLAY */
+.play{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  font-size:35px;
+  background:rgba(0,0,0,0.6);
+  padding:12px 16px;
+  border-radius:50%;
+}
+
+/* TIME */
+.time{
+  position:absolute;
+  bottom:10px;
+  right:10px;
+  background:black;
+  padding:4px 7px;
+  font-size:12px;
+  border-radius:5px;
+}
+
+/* TITLE */
+.title{
+  margin-top:8px;
+  font-size:15px;
+}
+
+/* META */
+.meta{
+  font-size:13px;
+  color:#cbd5f5;
+}
+
+/* BADGE */
+.badge{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:red;
+  padding:5px 8px;
+  font-size:11px;
+  border-radius:5px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="header">🎬 Video News</div>
+
+  <div class="video-grid">
+
+    <!-- VIDEO 1 -->
+    <div class="video">
+      <div class="video-box">
+        <span class="badge">Breaking</span>
+        <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7">
+        <div class="play">▶</div>
+        <div class="time">03:10</div>
+      </div>
+      <div class="title">Growth Forecast Raised for 2024</div>
+      <div class="meta">2.2M views • 3 hrs ago</div>
+    </div>
+
+    <!-- VIDEO 2 -->
+    <div class="video">
+      <div class="video-box">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+        <div class="play">▶</div>
+        <div class="time">04:32</div>
+      </div>
+      <div class="title">AI Robotics Future Explained</div>
+      <div class="meta">1.1M views • 3 days ago</div>
+    </div>
+
+    <!-- VIDEO 3 -->
+    <div class="video">
+      <div class="video-box">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d">
+        <div class="play">▶</div>
+        <div class="time">06:51</div>
+      </div>
+      <div class="title">Market Growth Analysis</div>
+      <div class="meta">980K views • 1 week ago</div>
+    </div>
+
+    <!-- VIDEO 4 -->
+    <div class="video">
+      <div class="video-box">
+        <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44">
+        <div class="play">▶</div>
+        <div class="time">05:20</div>
+      </div>
+      <div class="title">Startup Funding Explained</div>
+      <div class="meta">750K views • 2 days ago</div>
+    </div>
+
+    <!-- VIDEO 5 -->
+    <div class="video">
+      <div class="video-box">
+        <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a">
+        <div class="play">▶</div>
+        <div class="time">02:45</div>
+      </div>
+      <div class="title">Crypto Market Update</div>
+      <div class="meta">600K views • 1 day ago</div>
+    </div>
+
+    <!-- VIDEO 6 -->
+    <div class="video">
+      <div class="video-box">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
+        <div class="play">▶</div>
+        <div class="time">07:10</div>
+      </div>
+      <div class="title">Tech Industry Future</div>
+      <div class="meta">1.5M views • 5 days ago</div>
+    </div>
+
+    <!-- VIDEO 7 -->
+    <div class="video">
+      <div class="video-box">
+        <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231">
+        <div class="play">▶</div>
+        <div class="time">03:55</div>
+      </div>
+      <div class="title">Green Energy Boom</div>
+      <div class="meta">820K views • 2 days ago</div>
+    </div>
+
+    <!-- VIDEO 8 -->
+    <div class="video">
+      <div class="video-box">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab">
+        <div class="play">▶</div>
+        <div class="time">04:10</div>
+      </div>
+      <div class="title">Global Economy Update</div>
+      <div class="meta">1M views • 4 days ago</div>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

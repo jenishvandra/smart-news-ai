@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Watch</title>
+
+<style>
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+
+/* BODY */
+body{
+  background:#0f0f0f;
+  color:white;
+}
+
+/* NAVBAR */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 20px;
+  background:#0f0f0f;
+  border-bottom:1px solid #222;
+}
+
+.search{
+  display:flex;
+  width:40%;
+}
+.search input{
+  flex:1;
+  padding:10px;
+  background:#121212;
+  border:1px solid #333;
+  color:white;
+  border-radius:20px 0 0 20px;
+}
+.search button{
+  background:#222;
+  border:none;
+  padding:10px 15px;
+  border-radius:0 20px 20px 0;
+  color:white;
+}
+
+/* MAIN LAYOUT */
+.container{
+  display:grid;
+  grid-template-columns: 2.8fr 1.2fr;
+  gap:20px;
+  padding:20px;
+}
+
+/* VIDEO */
+iframe{
+  width:100%;
+  height:500px;
+  border-radius:12px;
+}
+
+/* TITLE */
+.title{
+  font-size:20px;
+  margin:12px 0;
+  font-weight:600;
+}
+
+/* CHANNEL */
+.channel{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.left-ch{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.avatar{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#2563eb;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.avatar.small{
+  width:30px;
+  height:30px;
+  font-size:12px;
+}
+
+/* BUTTONS */
+.actions{
+  display:flex;
+  gap:10px;
+}
+
+.btn, .actions button{
+  background:#272727;
+  padding:8px 14px;
+  border-radius:20px;
+  border:none;
+  color:white;
+  cursor:pointer;
+}
+
+.btn:hover, .actions button:hover{
+  background:#3f3f3f;
+}
+
+.active{
+  background:#2563eb !important;
+}
+
+/* DESC */
+.desc{
+  background:#1f1f1f;
+  padding:14px;
+  border-radius:12px;
+  margin-top:10px;
+}
+
+/* COMMENTS */
+.comments{margin-top:20px;}
+
+.comment{
+  display:flex;
+  gap:10px;
+  margin:15px 0;
+}
+
+.c-body span{
+  color:#aaa;
+  font-size:12px;
+}
+
+.c-actions{
+  margin-top:5px;
+  font-size:13px;
+  color:#aaa;
+  display:flex;
+  gap:10px;
+  cursor:pointer;
+}
+
+.add-comment{
+  display:flex;
+  gap:10px;
+  margin:15px 0;
+}
+.add-comment input{
+  flex:1;
+  background:transparent;
+  border:none;
+  border-bottom:1px solid #555;
+  color:white;
+  padding:8px;
+}
+
+/* RIGHT SIDE */
+.sidebar{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  max-height:90vh;
+  overflow-y:auto;
+}
+
+.video-card{
+  display:flex;
+  gap:10px;
+  padding:6px;
+  border-radius:10px;
+  cursor:pointer;
+}
+.video-card:hover{
+  background:#1f1f1f;
+}
+
+.video-card img{
+  width:168px;
+  height:94px;
+  border-radius:8px;
+  object-fit:cover;
+}
+
+.v-title{
+  font-size:14px;
+  font-weight:500;
+}
+.v-meta{
+  font-size:12px;
+  color:#aaa;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div>☰ </div>
+
+  <div class="search">
+    <input placeholder="Search">
+    <button>🔍</button>
+  </div>
+
+  <div>👤</div>
+</div>
+
+<div class="container">
+
+<!-- LEFT -->
+<div>
+
+<iframe src="https://www.youtube.com/embed/2Vv-BfVoq4g" allowfullscreen></iframe>
+
+<div class="title">
+You Lied To Me Mashup | Bollywood Love Songs ❤️
+</div>
+
+<div class="channel">
+  <div class="left-ch">
+    <div class="avatar">A</div>
+    <div>
+      Animesh Lofi<br>
+      <small>165K subscribers</small>
+    </div>
+  </div>
+
+  <!-- MAIN ACTION -->
+  <div class="actions">
+    <button id="likeBtn">👍 <span id="likeCount">5900</span></button>
+    <button id="dislikeBtn">👎 <span id="dislikeCount">120</span></button>
+    <button onclick="shareVideo()">🔗 Share</button>
+    <button onclick="downloadVideo()">⬇ Download</button>
+    <button id="subscribeBtn">Subscribe</button>
+  </div>
+</div>
+
+<div class="desc">
+873K views • 1 year ago <br>
+Best Bollywood mashup ❤️
+</div>
+
+<!-- COMMENTS -->
+<div class="comments">
+
+  <div class="comment-header">
+    <h3>115 Comments</h3>
+  </div>
+
+  <div class="add-comment">
+    <div class="avatar small">U</div>
+    <input id="commentInput" placeholder="Add a comment...">
+    <button onclick="addComment()">Post</button>
+  </div>
+
+  <div id="commentList">
+
+    <div class="comment">
+      <div class="avatar small">S</div>
+      <div class="c-body">
+        <b>@user</b> <span>10 months ago</span><br>
+        Amazing mashup ❤️
+        <div class="c-actions">
+          <span onclick="likeComment(this)">👍 9</span>
+          <span onclick="dislikeComment(this)">👎 1</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+<div class="sidebar">
+
+!-- MORE VIDEOS -->
+
+<div class="video-card">
+<img src="https://i.ytimg.com/vi/ktvTqknDobU/hqdefault.jpg">
+<div>
+<div class="v-title">Radioactive - Imagine Dragons</div>
+<div class="v-meta">1.5B views • 8 years ago</div>
+</div>
+</div>
+
+<div class="video-card">
+<img src="https://i.ytimg.com/vi/09R8_2nJtjg/hqdefault.jpg">
+<div>
+<div class="v-title">Maroon 5 - Sugar</div>
+<div class="v-meta">3.9B views • 9 years ago</div>
+</div>
+</div>
+
+<div class="video-card">
+<img src="https://i.ytimg.com/vi/3JZ_D3ELwOQ/hqdefault.jpg">
+<div>
+<div class="v-title">Charlie Puth - We Don’t Talk</div>
+<div class="v-meta">3B views • 6 years ago</div>
+</div>
+</div>
+
+<div class="video-card">
+<img src="https://i.ytimg.com/vi/450p7goxZqg/hqdefault.jpg">
+<div>
+<div class="v-title">Justin Bieber - Baby</div>
+<div class="v-meta">2.9B views • 10 years ago</div>
+</div>
+</div>
+
+<div class="video-card">
+<img src="https://i.ytimg.com/vi/60ItHLz5WEA/hqdefault.jpg">
+<div>
+<div class="v-title">Alan Walker - Faded</div>
+<div class="v-meta">3.5B views • 7 years ago</div>
+</div>
+</div>
+
+<div class="video-card">
+<img src="https://i.ytimg.com/vi/fRh_vgS2dFE/hqdefault.jpg">
+<div>
+<div class="v-title">Justin Bieber - Sorry</div>
+<div class="v-meta">3.6B views • 8 years ago</div>
+</div>
+</div>
+
+<div class="video-card">
+<img src="https://i.ytimg.com/vi/SlPhMPnQ58k/hqdefault.jpg">
+<div>
+<div class="v-title">The Weeknd - Blinding Lights</div>
+<div class="v-meta">3.9B views • 4 years ago</div>
+</div>
+</div>
+
+<div class="video-card">
+<img src="https://i.ytimg.com/vi/JGwWNGJdvx8/hqdefault.jpg">
+<div>
+<div class="v-title">Ed Sheeran - Shape of You</div>
+<div class="v-meta">6B views • 7 years ago</div>
+</div>
+</div>
+
+<div class="video-card">
+<img src="https://i.ytimg.com/vi/OPf0YbXqDm0/hqdefault.jpg">
+<div>
+<div class="v-title">Uptown Funk</div>
+<div class="v-meta">4.5B views • 8 years ago</div>
+</div>
+</div>
+
+<div class="video-card">
+<img src="https://i.ytimg.com/vi/YQHsXMglC9A/hqdefault.jpg">
+<div>
+<div class="v-title">Adele - Hello</div>
+<div class="v-meta">3B views • 9 years ago</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+// LIKE / DISLIKE
+let liked=false,disliked=false;
+
+likeBtn.onclick=()=>{
+ if(!liked){
+  likeCount.innerText++;
+  likeBtn.classList.add("active");
+  liked=true;
+  if(disliked){dislikeCount.innerText--;dislikeBtn.classList.remove("active");disliked=false;}
+ }else{
+  likeCount.innerText--;
+  likeBtn.classList.remove("active");
+  liked=false;
+ }
+};
+
+dislikeBtn.onclick=()=>{
+ if(!disliked){
+  dislikeCount.innerText++;
+  dislikeBtn.classList.add("active");
+  disliked=true;
+  if(liked){likeCount.innerText--;likeBtn.classList.remove("active");liked=false;}
+ }else{
+  dislikeCount.innerText--;
+  dislikeBtn.classList.remove("active");
+  disliked=false;
+ }
+};
+
+// SUBSCRIBE
+subscribeBtn.onclick=()=>{
+ if(subscribeBtn.innerText==="Subscribe"){
+  subscribeBtn.innerText="Subscribed";
+  subscribeBtn.style.background="#22c55e";
+ }else{
+  subscribeBtn.innerText="Subscribe";
+  subscribeBtn.style.background="white";
+  subscribeBtn.style.color="black";
+ }
+};
+
+// SHARE
+function shareVideo(){
+ navigator.clipboard.writeText(window.location.href);
+ alert("Link copied!");
+}
+
+// DOWNLOAD
+function downloadVideo(){
+ alert("Download started 😄");
+}
+
+// ADD COMMENT
+function addComment(){
+ let text=commentInput.value.trim();
+ if(text==="") return;
+
+ let div=document.createElement("div");
+ div.className="comment";
+
+ div.innerHTML=`
+ <div class="avatar small">U</div>
+ <div class="c-body">
+ <b>@You</b> <span>Just now</span><br>
+ ${text}
+ <div class="c-actions">
+ <span onclick="likeComment(this)">👍 0</span>
+ <span onclick="dislikeComment(this)">👎 0</span>
+ </div>
+ </div>
+ `;
+
+ commentList.prepend(div);
+ commentInput.value="";
+}
+
+// COMMENT LIKE
+function likeComment(el){
+ let n=parseInt(el.innerText.split(" ")[1]);
+ el.innerText="👍 "+(n+1);
+}
+
+// COMMENT DISLIKE
+function dislikeComment(el){
+ let n=parseInt(el.innerText.split(" ")[1]);
+ el.innerText="👎 "+(n+1);
+}
+
+</script>
+
+</body>
+</html>

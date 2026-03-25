@@ -1,0 +1,45 @@
+{
+  "budget_2026": {
+    "title": "Union Budget 2026",
+    "explanation": "The government has introduced Budget 2026 focusing on economic growth, infrastructure development, and digital transformation.",
+    "key_points": [
+      "Increase in infrastructure spending",
+      "Focus on digital economy",
+      "Tax reforms for middle class"
+    ],
+    "impact": "Positive impact on businesses and long-term economic growth."
+  },
+
+  "stock_market_crash": {
+    "title": "Stock Market Crash",
+    "explanation": "The stock market is falling due to global economic uncertainty, rising inflation, and investor panic.",
+    "key_points": [
+      "Global recession fears",
+      "High inflation rates",
+      "Heavy selling by investors"
+    ],
+    "impact": "Short-term losses for investors but potential long-term opportunities."
+  },
+
+  "inflation": {
+    "title": "Inflation Rise",
+    "explanation": "Inflation refers to the increase in prices of goods and services over time, reducing purchasing power.",
+    "key_points": [
+      "Increase in fuel prices",
+      "Supply chain issues",
+      "High demand vs low supply"
+    ],
+    "impact": "Higher cost of living and reduced savings value."
+  },
+
+  "startup_funding": {
+    "title": "Startup Funding News",
+    "explanation": "Several startups have raised significant funding, showing strong investor confidence in the tech sector.",
+    "key_points": [
+      "Growth in tech startups",
+      "Increase in venture capital investment",
+      "Focus on innovation"
+    ],
+    "impact": "Boosts employment and innovation in the economy."
+  }
+}

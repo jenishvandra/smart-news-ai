@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MyET News</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+
+  /* 🔥 BETTER DARK BACKGROUND */
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+              url("https://images.unsplash.com/photo-1495020689067-958852a7765e")
+              no-repeat center/cover;
+
+  color: #e5e7eb;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* PROFILE */
+.profile a {
+  color: white;
+  text-decoration: none;
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  top: 80px;
+  left: 15px;
+  width: 190px;
+}
+
+.sidebar div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 12px;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sidebar div:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* MAIN */
+.main {
+  margin-left: 230px;
+  padding: 20px;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+/* LEFT */
+.left {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+/* LOGO */
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo img{
+  width:28px;
+}
+
+/* SEARCH FIX */
+/* SEARCH WRAPPER */
+.search{
+  position:relative;
+  width:40%;
+  max-width:500px;
+}
+
+/* INPUT */
+.search input{
+  width:100%;
+  height:45px;
+  padding-left:45px; /* 🔥 space for icon */
+  padding-right:15px;
+
+  border-radius:30px;
+  border:none;
+  outline:none;
+
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(12px);
+
+  color:white;
+  font-size:14px;
+}
+
+/* PLACEHOLDER */
+.search input::placeholder{
+  color:#ddd;
+}
+
+/* ICON (FIXED) */
+.search i{
+  position:absolute;
+  top:50%;
+  left:15px;
+  transform:translateY(-50%);
+
+  color:#fff;
+  font-size:14px;
+
+  pointer-events:none; /* 🔥 important */
+  z-index:2;           /* 🔥 ensure visible */
+}
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px; /* 🔥 spacing fix */
+}
+
+/* PLACEHOLDER */
+.search input::placeholder{
+  color:#ccc;
+}
+
+/* ICON */
+.search i{
+  position:absolute;
+  top:50%;
+  left:15px;
+  transform:translateY(-50%);
+  color:#ddd;
+  font-size:14px;
+}
+
+/* LANGUAGE */
+.lang{
+  margin-right:15px;
+  background:rgba(255,255,255,0.1);
+  padding:5px 10px;
+  border-radius:10px;
+}
+/* RIGHT */
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: stretch; /* FIX GAP ISSUE */
+}
+
+/* CARD */
+.card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 12px;
+
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+/* IMAGE FIX */
+.card img {
+  width: 100%;
+  height: 160px;        /* 🔥 PERFECT SIZE */
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* TEXT */
+h3 {
+  margin: 5px 0;
+  color: #ffffff;
+}
+
+p {
+  margin: 0;
+  font-size: 14px;
+  color: #d1d5db;
+  line-height: 1.4;
+}
+
+/* BUTTONS */
+.btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  margin-right: 5px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.read {
+  background: linear-gradient(to right, #2563eb, #3b82f6);
+  color: white;
+}
+
+.watch {
+  background: rgba(255,255,255,0.15);
+  color: white;
+}
+
+.ask {
+  background: linear-gradient(to right, #9333ea, #c084fc);
+  color: white;
+}
+
+/* BUTTON ROW */
+.actions {
+  margin-top: 5px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<!-- NAVBAR -->
+<div class="navbar">
+
+  <!-- LOGO -->
+  <div class="logo">
+    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968267.png">
+    MyET
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search">
+  <i class="fa fa-search"></i>
+  <input type="text" placeholder="Search news...">
+</div>
+
+  <!-- PROFILE + LANG -->
+ <div class="profile">
+  <span class="lang">🌐 EN</span>
+
+  {% if user %}
+    <a href="/profile" class="profile-link">👤 {{ user }}</a>
+  {% else %}
+    <a href="/">Login</a>
+  {% endif %}
+</div>
+
+</div>
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div><i class="fa fa-home"></i> Home</div>
+  <div onclick="location.href='/my-feed'">
+  <i class="fa fa-newspaper"></i> My Feed
+</div>
+  <div onclick="location.href='/market'">
+  <i class="fa fa-chart-line"></i> Market
+</div>
+  <div onclick="location.href='/startups'">
+  <i class="fa fa-rocket"></i> Startups
+</div>
+  <div onclick="location.href='/video-news'">
+  <i class="fa fa-video"></i> Video News
+</div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- LEFT -->
+  <div class="left">
+
+    <!-- TESLA -->
+    <div class="card">
+      <img src="https://static1.hotcarsimages.com/wordpress/wp-content/uploads/2024/05/tesla-roadster-front.jpg">
+      <h3>Tesla Unveils New EV Model</h3>
+      <p>Advanced AI-powered electric vehicle with smart automation and longer battery life.</p>
+
+      <div class="actions">
+        <a href="/read">
+  <button class="btn read">Read</button>
+</a>
+        <a href="/watch">
+  <button class="btn watch">Watch</button>
+</a>
+       <a href="/ask-ai">
+  <button class="btn ask">Ask AI</button>
+</a>
+      </div>
+    </div>
+
+    <!-- STARTUP -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd">
+      <h3>Startup Funding Surge 2026</h3>
+      <p>Record-breaking investments boost India's growing startup ecosystem.</p>
+
+      <div class="actions">
+       <a href="/read">
+  <button class="btn read">Read</button>
+</a>
+       <a href="/watch">
+  <button class="btn watch">Watch</button>
+</a>
+        <a href="/ask-ai">
+  <button class="btn ask">Ask AI</button>
+</a>
+      </div>
+    </div>
+
+    <!-- VIDEO -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d">
+      <h3>AI News Video</h3>
+      <p>Auto-generated news video with AI narration and highlights.</p>
+    </div>
+
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+
+    <!-- FLOOD -->
+    <div class="card">
+    <img src="https://s01.sgp1.digitaloceanspaces.com/inline/933197-ilnjqbojsz-1565241815.jpg" alt="Image" width="300">
+      <p>Heavy rains have caused flooding in many areas. Rescue operations are ongoing.</p>
+    </div>
+
+    <!-- PROTEST -->
+    <div class="card">
+     <img src="https://media.cnn.com/api/v1/images/stellar/prod/2025-04-05t173222z-226022227-rc2trda6csz2-rtrmadp-3-usa-trump-protest.JPG?c=16x9&q=w_1280,c_fill" alt="Protest Image" width="300">
+      <p>A protest took place in the city. Authorities are monitoring the situation.</p>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

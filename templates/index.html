@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MyET News</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI';
+  background: url("https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d") no-repeat center/cover;
+  color: white;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  align-items: center;
+}
+
+.search {
+  width: 40%;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  top: 80px;
+  left: 10px;
+  width: 180px;
+}
+
+.sidebar div {
+  background: rgba(255,255,255,0.2);
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* MAIN */
+.main {
+  margin-left: 220px;
+  padding: 20px;
+  display: flex;
+}
+
+/* LEFT */
+.left {
+  width: 60%;
+}
+
+/* RIGHT */
+.right {
+  width: 40%;
+  padding-left: 20px;
+}
+
+/* CARD */
+.card {
+  background: rgba(255,255,255,0.15);
+  padding: 15px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+/* BUTTON */
+.btn {
+  padding: 5px 12px;
+  border-radius: 10px;
+  border: none;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.read { background: #2563eb; color: white; }
+.watch { background: white; color: black; }
+.ask { background: #9333ea; color: white; }
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <h2>MyET</h2>
+  <input class="search" placeholder="Search news...">
+
+  <!-- LOGIN / PROFILE -->
+  <div>
+    {% if session.get('user') %}
+      👤 Profile
+    {% else %}
+      <a href="/" style="color:white;">Login</a>
+    {% endif %}
+  </div>
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div>🏠 Home</div>
+  <div>📰 My Feed</div>
+  <div>📈 Market</div>
+  <div>🚀 Startups</div>
+  <div>🎥 Video News</div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- LEFT SIDE -->
+  <div class="left">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1511391409280-3c0c2b43f8d2">
+      <h3>Tesla Unveils New EV Model</h3>
+      <p>New electric vehicle launched with AI features...</p>
+
+      <button class="btn read">Read</button>
+      <button class="btn watch">Watch</button>
+      <button class="btn ask">Ask AI</button>
+    </div>
+
+    <div class="card">
+      <h3>Startup Funding Surge 2026</h3>
+      <p>Record investments happening in India...</p>
+
+      <button class="btn read">Read</button>
+      <button class="btn watch">Watch</button>
+      <button class="btn ask">Ask AI</button>
+    </div>
+
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="right">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
+      <p>Heavy rains caused flooding in many areas...</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308">
+      <p>A protest took place. Authorities monitoring...</p>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

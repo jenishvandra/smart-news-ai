@@ -1,0 +1,17 @@
+{
+  "startup": {
+    "title": "Startup Funding Boom",
+    "summary": "Indian startups are seeing increased funding in AI and fintech sectors.",
+    "impact": "Good for entrepreneurs and job creation"
+  },
+  "stock": {
+    "title": "Stock Market Update",
+    "summary": "Market shows mixed trends with IT stocks rising.",
+    "impact": "Investors should watch tech sector closely"
+  },
+  "economy": {
+    "title": "Inflation Explained",
+    "summary": "Inflation means rising prices of goods and services.",
+    "impact": "Affects purchasing power of people"
+  }
+}
