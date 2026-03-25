@@ -32,7 +32,7 @@ Smart News AI is a cutting-edge web application that leverages Generative AI to 
 
 ## 📁 Project Structure
 
-smart-news-ai/ │ ├── app.py                # Main Flask application (entry point) ├── requirements.txt     # Python dependencies ├── city_data.json       # City database for location-based news ├── news_data.json       # Cached news articles │ └── templates/ └── index.html       # Main frontend UI
+smart-news-ai/ ├── app.py ├── requirements.txt ├── city_data.json ├── news_data.json └── templates/ └── index.html
 
 ---
 
@@ -40,11 +40,9 @@ smart-news-ai/ │ ├── app.py                # Main Flask application (ent
 
 ### 🔧 Prerequisites
 
-Make sure you have:
-
-- Python 3.8+ ([Download](https://www.python.org/downloads/))  
-- pip (comes with Python)  
-- Git  
+- Python 3.8+
+- pip
+- Git
 
 ---
 
@@ -73,7 +71,7 @@ http://127.0.0.1:5000
 
 📸 Demo / Preview
 
-👉 https://github.com/user-attachments/assets/8326c3dd-8cca-49b9-bd3e-aeada0460699
+https://github.com/user-attachments/assets/8326c3dd-8cca-49b9-bd3e-aeada0460699
 
 
 ---
@@ -82,12 +80,12 @@ http://127.0.0.1:5000
 
 Priority	Feature	Description
 
-🔴 High	🔐 User Authentication	Personalized news feeds with login system
-🟠 High	📱 Mobile App	Native Android & iOS apps
-🟡 Medium	🌍 Multi-language	Support for Hindi, Spanish & more
-🟡 Medium	🔊 Audio Summaries	Text-to-speech news playback
-🟢 Low	📊 Sentiment Analysis	Detect tone (positive/negative/neutral)
-🟢 Low	🔔 Push Notifications	Daily alerts on preferred topics
+🔴 High	🔐 User Authentication	Personalized news feeds
+🟠 High	📱 Mobile App	Android & iOS apps
+🟡 Medium	🌍 Multi-language	Hindi, Spanish support
+🟡 Medium	🔊 Audio Summaries	Text-to-speech
+🟢 Low	📊 Sentiment Analysis	News tone detection
+🟢 Low	🔔 Push Notifications	Daily alerts
 
 
 
@@ -95,13 +93,13 @@ Priority	Feature	Description
 
 💡 Use Cases
 
-👨‍💼 Busy Professionals – Quick updates during short breaks
+👨‍💼 Busy Professionals
 
-🎓 Students – Stay updated without spending hours
+🎓 Students
 
-📊 Researchers – Track trends across categories
+📊 Researchers
 
-🌍 General Users – Personalized, clutter-free news
+🌍 General Users
 
 
 
@@ -109,27 +107,19 @@ Priority	Feature	Description
 
 🤝 Contributing
 
-Contributions are welcome!
-
 1. Fork the repository
 
 
 2. Create a branch
 
-git checkout -b feature/AmazingFeature
+
+3. Commit changes
 
 
-3. Commit your changes
-
-git commit -m "Add Amazing Feature"
+4. Push
 
 
-4. Push to GitHub
-
-git push origin feature/AmazingFeature
-
-
-5. Open a Pull Request
+5. Open Pull Request
 
 
 
@@ -138,7 +128,7 @@ git push origin feature/AmazingFeature
 
 📄 License
 
-This project is developed for the ET Gen AI Hackathon and is intended for evaluation purposes.
+For ET Gen AI Hackathon evaluation purposes.
 
 
 ---
@@ -146,14 +136,14 @@ This project is developed for the ET Gen AI Hackathon and is intended for evalua
 👤 Author
 
 Jenish Vandra
-🔗 GitHub: https://github.com/jenishvandra
+https://github.com/jenishvandra
 
 
 ---
 
 🙏 Acknowledgments
 
-ET Gen AI Hackathon organizers
+ET Gen AI Hackathon
 
 Open-source community
 
