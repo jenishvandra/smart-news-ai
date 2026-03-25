@@ -29,14 +29,27 @@ Smart News AI delivers concise, personalized news summaries using Generative AI.
 
 ---
 
-## 📁 Project Structure---
+## 📁 Project Structure
 
-## 🚀 Quick Start
+smart-news-ai/
+
+├── app.py               # Main Flask app  
+├── requirements.txt     # Dependencies  
+├── city_data.json       # City data  
+├── news_data.json       # News cache  
+
+└── templates/  
+    └── index.html       # Frontend UI
 
 ### 1️⃣ Clone Repository
 
-```bash
 git clone https://github.com/jenishvandra/smart-news-ai.git
 cd smart-news-ai
+
+### 2️⃣ Install Dependencies
+
 pip install -r requirements.txt
+
+### 3️⃣ Run App
+
 python app.py
